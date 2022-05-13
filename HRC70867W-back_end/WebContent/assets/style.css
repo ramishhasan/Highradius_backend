@@ -1,0 +1,448 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+body{
+    background: transparent radial-gradient(closest-side at 50% 50%, #58687E 0%, #39495E 100%);
+    color: #ffffff;
+    height: 100vh;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 1000;
+}
+.s1{
+    padding:0.5% 25px;
+}
+.s1,.s2,.s3{
+    display: flex;
+}
+.header{
+    width: 55%;
+    font-family: monospace;
+}
+.s1 .header p{
+    color: #ffffff;
+}
+.s1 .header.left p{
+    font-size: 20px;
+}
+.header.left,ul.left{
+    padding-left: 1%;
+}
+
+.s2{
+    padding: 10px 0;
+    padding-top: 10px;
+    margin:0 40px;
+    align-items: flex-end;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: #2D424F;
+}
+.s2 .header.right{
+    width: 80%; 
+    flex-direction: row;
+    margin-top: 0px;
+    padding-right: 20%;
+    padding: 0 30px;
+}
+
+.s2 .modals{
+    display: flex;
+    margin-left: auto;
+    justify-content: flex-end;
+}
+
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+}
+
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-content{
+    width: 30%;
+    border: none;
+}
+.modal-content.m1{
+    width: 50%;
+}
+.modal-header {
+    margin-top: 100px;
+    padding: 22px 19px;
+    background-color: #2D424F;
+    color: white;
+    border-bottom: 2px solid #22323D;
+}
+.modal-header h2{
+    margin-left: 20px;
+}
+.modal-body,.form_modal1_data {
+    padding: 12px 26px;
+    background-color: #2D424F;
+}
+.modal-body.m1 div,.form_modal1_data{
+    display: flex;
+    align-items: flex-end;
+    padding: 10px;
+}
+
+.modal-body label{
+    margin-top: 10px;
+}
+.modal-body .m2 .btns{
+    display: flex;
+    flex-direction: row;
+    margin-left: 0;
+    padding-left: 0;
+    padding-top: 70%;
+}
+.modal-body .m2 .footer{
+    display: block;
+    flex-direction: row;
+}
+.btns{
+    padding-bottom: 20px;
+}
+.form_modal1_data.leftadd{
+    width: 50%;
+}
+.form_modal1_data label{
+    font-size: 12px;
+    width: 30%;
+}
+.leftadd,.rightadd{
+    padding-bottom: 90px;
+}
+.leftadd input[type=text]{
+    padding: 9px 0;
+}
+.rightadd input[type=text]{
+    padding: 90px 20px;
+}
+.rightadd label{
+    margin-bottom: 10px;
+}
+.rightadd .NT{
+    margin-bottom: 70px;
+}
+.m1 .NT{
+    margin-bottom: 52%;
+}
+.m1 .btns{
+    position: absolute;
+    margin-left: -30px;
+    height: 2%;
+}
+.m1 .btns .reset{
+    margin-left: 240px;
+}
+.btns .subbtn{
+    border: 1px solid #14AFF1;
+    background-color: #2D424F;
+    color: #ffffff;
+    font-weight: 600;
+    border-radius: 5px;
+    opacity: 1;
+    margin-top: 20px;
+    margin-left: 10px;
+    padding: 6px 20px;
+}
+.m1 .btns .subbtn{
+    padding: 6px 27px;
+}
+.modal-body .cancel1{
+    margin-right: 55%;
+    margin-left: -60px;
+}
+.btns .subbtn.cancel{
+    border: none;
+    color: #14AFF1;
+    margin-right: 80px;
+    margin-left: 0;
+}
+.btns .subbtn.sub{
+    background-color: #14AFF1;
+    color: #ffffff; 
+}
+.modal-button{
+    border: 1px solid #14AFF1;
+    background-color: #2D424F;
+    color: #97A1A9;
+    font-weight: 600;
+    border-radius: 10px;
+    opacity: 1;
+    margin-top: 20px;
+    margin-left: 20px;
+    padding: 1px 25px;
+}
+.req{
+    color: rgb(218, 84, 84);
+}
+.mhead,.mnote{
+    font-size: 16px;
+    color: #97A1A9;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    float: right;
+    margin: 25px 0;
+}
+.mnote label{
+    margin-right: 80px;
+    padding-bottom: 95px;
+}
+.mhead label{
+    margin-right: 24px;
+    padding-bottom: -70px;
+}
+.searchbar{
+    padding-top: 11px;
+    padding-left: 23px;
+}
+
+.s_icon{
+    position: absolute;
+    margin-top: 29px;
+    margin-right: 8px;
+}
+.s_icon img{
+    height: 20px;
+    opacity: 0.4;
+}
+input[type=text] , input[type=date] {  
+    padding: 8px 30px;  
+    background: #283A46 0% 0% no-repeat padding-box;
+    border: 1px solid #356680;
+    border-radius: 10px;
+    opacity: 1;
+    color: #97A1A9;
+    margin-top: 8px;  
+    font-size: 15px;   
+} 
+.mnote input[type=text]{
+    padding-top: 100px;
+}
+.m1 input.note{
+    padding-top: 60px;
+    width: 165px;
+}
+.s3{
+    padding-left: 10px;
+    margin: 0 40px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: #2D424F;
+}
+
+a, a:hover, a:focus, a:active {
+    text-decoration: none;
+    color: inherit;
+}
+table {
+    width: 100%;
+  }
+  
+  .s3 {
+    overflow-x: auto;
+  }
+  
+table,td{
+    margin: auto;
+    border: 2px #000000;
+    border-collapse: collapse;
+    border-spacing: 0;
+    scroll-behavior: auto;
+}
+
+tr:nth-child(even) {
+    background-color: rgb(40,58,70);
+}
+
+th{
+    text-align: left;
+    color: rgb(154, 160, 165);
+    background-color: #2D424F;
+    font-size: 14px;
+    padding: 25px 70px;
+    padding-left:10px;
+}
+
+td{
+    font-size: 13px;
+    padding:10px 30px;
+    padding-left:10px;
+    color: rgb(255, 255, 255);
+} 
+
+.pagination{
+    display: flex;
+    width: 100%;
+    position: absolute;
+    margin:15% 0%;
+}
+
+.pagination button{
+    margin: 1% 85%;
+    margin-left: auto;
+    padding: 12px 20px;
+    border-radius: 100%;
+    background-color: #51616b;
+    color: rgb(155, 155, 155);
+    border: none;
+}
+.pagination button:hover{
+    background-color: #0d83b6;
+}
+/* .pagination button.right{
+    padding-right: 0;
+    margin-right: 0;
+} */
+/* .pagination button .next{
+    margin-left: 250px;
+    margin-right: 0;
+} */
+/* .pagination button .prev{
+    margin-right: 95px;
+} */
+.pagination button .left , .pagination button .right{
+    font-size: 30px;
+    font-weight: 600;
+}
+
+@media screen and (max-width: 1080px) {
+    table,td{
+        font-size: 40px;
+    }
+    th{
+        font-size: 14px;
+    }
+    
+    td{
+        font-size: 12px;
+    }
+    input[type=text] , input[type=date] {  
+        padding: 8px 20px;  
+        font-size: 15px;   
+    } 
+  }
+
+@media screen and (max-width: 880px) {
+    table,td{
+        font-size: 25px;
+    }
+    th{
+        font-size: 13px;
+    }
+    
+    td{
+        font-size: 12px;
+    }
+    input[type=text] , input[type=date] {  
+        padding: 8px 10px;   
+        font-size: 15px;   
+    }
+    .pagination{
+        margin:31% -2%;
+    }
+    
+    .pagination button{
+        margin: 11% 80%;
+        margin-left: auto;
+        padding: 8px 15px;
+        border-radius: 100%;
+    } 
+}
+@media screen and (max-width: 800px) {
+    .pagination{
+        margin:31% -2%;
+    }
+    
+    .pagination button{
+        margin: 11% 80%;
+        margin-left: auto;
+        padding: 8px 15px;
+        border-radius: 100%;
+    }
+}
+
+
+@media screen and (max-width: 760px) {
+    table,td{
+        font-size: 20px;
+    }
+    th{
+        font-size: 13px;
+    }
+    
+    td{
+        font-size: 12px;
+    }
+    input[type=text] , input[type=date] {  
+        padding: 8px 1px;    
+        font-size: 15px;   
+    } 
+    .modal-button{
+        
+        font-size: 11px;
+        margin-top: 19px;
+        margin-left: 8px;
+        padding: 0px 12px;
+    }
+    .searchbar{
+        padding-left: 10px;
+        margin-right: -15px;
+    }
+    .s_icon{
+        margin-right: -8px;
+    }
+    .pagination{
+        margin:41% -10%;
+    }
+    
+    .pagination button{
+        margin: 11% 75%;
+        margin-left: auto;
+        padding: 8px 15px;
+        border-radius: 100%;
+    }
+}

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>ABC Company</title>
+        <link rel="stylesheet" href="assets/style.css" />
+    </head>
+    <body>
+        <section class="s1">
+            <div class="header left">
+                <img height="32px" src="images/company.svg" alt="" />
+                <p>Invoice List</p>
+            </div>
+            <div class="header center">
+                <img height="32px" src="images/logo.svg" alt="" srcset="" />
+            </div>
+        </section>
+        <section class="s2">
+            <div class="header right modals">
+                <button class="modal-button" href="#myModal1"><img height="10px" width="11px" src="images\Path 18189.svg" /> Add</button>
+                <div id="myModal1" class="modal">
+                    <div class="modal-content m1">
+                        <div class="modal-header">
+                            <span class="close"><img src="images/close.svg" alt="" srcset="" /></span>
+                            <h2>Add Invoice</h2>
+                        </div>
+                        <div class="modal-body m1">
+                            <form class="form_modal1_data" onsubmit="add_details()">
+                                <section class="leftadd">
+                                    <div>
+                                        <label>Customer Name <span class="req">*</span> </label><br />
+                                        <input type="text" name="name_customer" value="" required/><br />
+                                    </div>
+                                    <div>
+                                        <label>Customer No. <span class="req">*</span> </label><br />
+                                        <input type="text" name="cust_number" value="" required/><br />
+                                        <br />
+                                    </div>
+                                    <div>
+                                        <label>Invoice No. <span class="req">*</span> </label><br />
+                                        <br />
+                                        <input type="text" name="doc_id" value="" required/><br />
+                                        <br />
+                                    </div>
+                                    <div>
+                                        <label>Invoice Amount <span class="req">*</span> </label><br />
+                                        <br />
+                                        <input type="text" name="total_open_amount" value="" required/><br />
+                                        <br />
+                                    </div>
+                                </section>
+                                <section class="rightadd">
+                                    <div>
+                                        <label>Due date. <span class="req">*</span> </label><br />
+                                        <br />
+                                        <input type="date" name="due_in_date" value="" required/><br />
+                                        <br />
+                                    </div>
+                                    <div>
+                                        <label class="NT">Notes </label><br />
+                                        <br />
+                                        <input type="text" name="notes" class="note" value="" /><br />
+                                        <br />
+                                    </div>
+                                </section>
+                                <div class="btns">
+                                    <input class="subbtn cancel" type="button" value="Cancel" />
+                                    <input class="subbtn reset" type="reset" value="Reset" />
+                                    <input class="subbtn sub" type="submit" value="Submit" />
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <button class="modal-button" id="edit-btn" href="#myModal2"><img height="11px" width="16px" src="images\pencil.svg" /> Edit</button>
+                <div id="myModal2" class="modal">
+                    <div class="modal-content m2">
+                        <div class="modal-header">
+                            <span class="close"><img src="images/close.svg" alt="" srcset="" /></span>
+                            <h2>Edit Invoice</h2>
+                        </div>
+                        <div class="modal-body m2">
+                            <form onsubmit="edit_details()">
+                                <div class="mhead">
+                                    <label>Invoice Amount</label><br />
+                                    <input type="text" value="" name="amt"/><br />
+                                </div>
+                                <div class="mnote">
+                                    <label>Notes</label><br />
+                                    <input type="text" value="" name="notes"/><br />
+                                    <br />
+                                </div>
+                                <div class="footer">
+                                    <div class="btns">
+                                        <input class="subbtn cancel" type="button" value="Cancel" />
+                                        <input class="subbtn clear" type="button" value="Clear" />
+                                        <input class="subbtn sub" type="submit" value="Add" />
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <button class="modal-button" href="#myModal3"><img height="10px" width="10px" src="images\Path 18189-1.svg" /> Delete</button>
+                <div id="myModal3" class="modal">
+                    <div class="modal-content m2">
+                        <div class="modal-header">
+                            <span class="close"><img src="images/close.svg" alt="" srcset="" /></span>
+                            <h2>Delete Records(s)</h2>
+                        </div>
+                        <div class="modal-body m2">
+                            <form action="/">
+                                <h3>You will lose your record(s) after this action.We can't recover once you delete. Are you sure you want to <span class="req">permanently delete</span> them?</h3>
+                                <div class="footer">
+                                    <div style="margin-left: 40px; padding-left: 20px;" class="btns">
+                                        <input class="subbtn clear cancel1" type="submit" value="Cancel" />
+                                        <input class="subbtn sub delete1" type="submit" value="Delete" />
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="searchbar">
+                    <input type="text" onkeyup="search()" placeholder=" Search by Invoice No." name="search" />
+                </div>
+                <div class="s_icon">
+                    <img src="images/search.svg" />
+                </div>
+            </div>
+            <script>
+                var btn = document.querySelectorAll("button.modal-button");
+                var modals = document.querySelectorAll(".modal");
+                var spans = document.getElementsByClassName("close");
+                for (var i = 0; i < btn.length; i++) {
+                    btn[i].onclick = function (e) {
+                        e.preventDefault();
+                        modal = document.querySelector(e.target.getAttribute("href"));
+                        modal.style.display = "block";
+                    };
+                }
+                for (var i = 0; i < spans.length; i++) {
+                    spans[i].onclick = function () {
+                        for (var index in modals) {
+                            if (typeof modals[index].style !== "undefined") modals[index].style.display = "none";
+                        }
+                    };
+                }
+                window.onclick = function (event) {
+                    if (event.target.classList.contains("modal")) {
+                        for (var index in modals) {
+                            if (typeof modals[index].style !== "undefined") modals[index].style.display = "none";
+                        }
+                    }
+                };
+            </script>
+        </section>
+        <section class="s3">
+            <table id="dtable">
+                <tr class="tabhead">
+                    <th></th>
+                    <th><input type="checkbox" /></th>
+                    <th>Customer Name</th>
+                    <th>Customer #</th>
+                    <th>Invoice #</th>
+                    <th>Invoice Amount</th>
+                    <th>Due Date</th>
+                    <th>Predicted Payment Date</th>
+                    <th>Notes</th>
+                    <th></th>
+                </tr>
+                <tr class="c1">
+                    <td></td>
+                    <td><input type="checkbox" /></td>
+                    <td>Akash Kumar</td>
+                    <td>9518322</td>
+                    <td>5454236369</td>
+                    <td>1,50,000</td>
+                    <td>15/11/2020</td>
+                    <td>19/12/2020</td>
+                    <td>lorem ipsum</td>
+                    <td></td>
+                </tr>
+                <tr class="c1">
+                    <td></td>
+                    <td><input type="checkbox" /></td>
+                    <td>Akash Kumar</td>
+                    <td>9518322</td>
+                    <td>5454236369</td>
+                    <td>1,50,000</td>
+                    <td>15/11/2020</td>
+                    <td>19/12/2020</td>
+                    <td>lorem ipsum</td>
+                    <td></td>
+                </tr>
+                <tr class="c1">
+                    <td></td>
+                    <td><input type="checkbox" /></td>
+                    <td>Akash Kumar</td>
+                    <td>9518322</td>
+                    <td>5454236369</td>
+                    <td>1,50,000</td>
+                    <td>15/11/2020</td>
+                    <td>19/12/2020</td>
+                    <td>lorem ipsum</td>
+                    <td></td>
+                </tr>
+                <tr class="c1">
+                    <td></td>
+                    <td><input type="checkbox" /></td>
+                    <td>Akash Kumar</td>
+                    <td>9518322</td>
+                    <td>5454236369</td>
+                    <td>1,50,000</td>
+                    <td>15/11/2020</td>
+                    <td>19/12/2020</td>
+                    <td>lorem ipsum</td>
+                    <td></td>
+                </tr>
+                <tr class="c1">
+                    <td></td>
+                    <td><input type="checkbox" /></td>
+                    <td>Akash Kumar</td>
+                    <td>9518322</td>
+                    <td>5454236369</td>
+                    <td>1,50,000</td>
+                    <td>15/11/2020</td>
+                    <td>19/12/2020</td>
+                    <td>lorem ipsum</td>
+                    <td></td>
+                </tr>
+                <tr class="c1">
+                    <td></td>
+                    <td><input type="checkbox" /></td>
+                    <td>Akash Kumar</td>
+                    <td>9518322</td>
+                    <td>5454236369</td>
+                    <td>1,50,000</td>
+                    <td>15/11/2020</td>
+                    <td>19/12/2020</td>
+                    <td>lorem ipsum</td>
+                    <td></td>
+                </tr>
+                <tr class="c1">
+                    <td></td>
+                    <td><input type="checkbox" /></td>
+                    <td>Akash Kumar</td>
+                    <td>9518322</td>
+                    <td>5454236369</td>
+                    <td>1,50,000</td>
+                    <td>15/11/2020</td>
+                    <td>19/12/2020</td>
+                    <td>lorem ipsum</td>
+                    <td></td>
+                </tr>
+                <tr class="c1">
+                    <td></td>
+                    <td><input type="checkbox" /></td>
+                    <td>Akash Kumar</td>
+                    <td>9518322</td>
+                    <td>5454236369</td>
+                    <td>1,50,000</td>
+                    <td>15/11/2020</td>
+                    <td>19/12/2020</td>
+                    <td>lorem ipsum</td>
+                    <td></td>
+                </tr>
+                <tr class="c1">
+                    <td></td>
+                    <td><input type="checkbox" /></td>
+                    <td>Akash Kumar</td>
+                    <td>9518322</td>
+                    <td>5454236369</td>
+                    <td>1,50,000</td>
+                    <td>15/11/2020</td>
+                    <td>19/12/2020</td>
+                    <td>lorem ipsum</td>
+                    <td></td>
+                </tr>
+            </table>
+            <div class="pagination button">
+                <button onclick="prev()" class="prev" id="prev"><span class="left"><</span></button>
+                <button onclick="next()" class="next" id="next"><span class="right">></span></button>
+            </div>
+        </section>
+        <script src="assets/jquery-3.3.1.min.js"></script>
+        <script src="assets/index.js"></script>
+    </body>
+</html>
